@@ -75,7 +75,8 @@ class CoursesController extends Controller
             // $gambar = $request->file('picture');
             // $nama_file = Str::slug($judul_file);
             // $upload = Uploader::upload($gambar, array("public_id" => $nama_file));
-        $formFields['picture'] = $request->file('picture')->store('images','public');
+        $request->file('picture')->store('images','public');
+        $formFields['picture'] = "images/" . $request->picture->hashName();
         }
 
         Courses::create($formFields);
