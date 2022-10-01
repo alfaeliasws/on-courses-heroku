@@ -38,27 +38,27 @@ class UserController extends Controller
         return redirect('/')->with('message',"You've Signed Up");
     }
 
-    public function storeAdmin(Request $request)
-    {
-        $formFields = $request->validate([
-            'username' => ['required','min:3'],
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => ['required','email',Rule::unique('users','email')],
-            'password' => 'required',
-        ]);
+    // public function storeAdmin(Request $request)
+    // {
+    //     $formFields = $request->validate([
+    //         'username' => ['required','min:3'],
+    //         'firstname' => 'required',
+    //         'lastname' => 'required',
+    //         'email' => ['required','email',Rule::unique('users','email')],
+    //         'password' => 'required',
+    //     ]);
 
-        $formFields['password'] = bcrypt($formFields['password']);
+    //     $formFields['password'] = bcrypt($formFields['password']);
 
-        $data = [...$formFields,'is_admin'=> 1,'api_token'=> Str::random(60),];
+    //     $data = [...$formFields,'is_admin'=> 1,'api_token'=> Str::random(60),];
 
-        $user = User::create($data);
+    //     $user = User::create($data);
 
-        // auth()->login($user);
+    //     // auth()->login($user);
 
 
-        return $data;
-    }
+    //     return $data;
+    // }
 
     public function logout(Request $request)
     {

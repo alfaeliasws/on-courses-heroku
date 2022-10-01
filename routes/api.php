@@ -77,8 +77,8 @@ Route::get('listings',[ApiController::class,'index']);
 Route::get('listings/{listing}',[ApiController::class,'show'])->middleware('guest');
 
 
-//Register User
-Route::post('admin',[UserController::class,'storeAdmin']);
+//Register Admin
+// Route::post('admin',[UserController::class,'storeAdmin']);
 
 
 
