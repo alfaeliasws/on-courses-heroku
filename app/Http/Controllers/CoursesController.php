@@ -126,7 +126,8 @@ class CoursesController extends Controller
         ]);
 
         if($request->hasFile('picture')){
-            $formFields['picture'] = $request->file('picture')->store('images','public');
+            $request->file('picture')->store('images','public');
+            $formFields['picture'] = "images/" . $request->picture->hashName();
         }
 
         $course = Courses::findOrFail($listing);
