@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Courses;
-use Cloudinary\Uploader;
 use Illuminate\Http\Request;
 use App\Helpers\ApiFormatter;
+use JD\Cloudder\Facades\Cloudder;
 use Illuminate\Support\Facades\DB;
+use Cloudinary\Api\Upload\UploadApi;
 use App\Http\Requests\StoreCoursesRequest;
 use App\Http\Requests\UpdateCoursesRequest;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
@@ -15,18 +16,8 @@ use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 class CoursesController extends Controller
 {
     public function __construct() {
-		/**
-		 * Set your APIKey Cloudinary
-		 * cloudname
-		 * api_key
-		 * api_secret
-		 */
-		// Cloudinary::config(array(
-		// 	"cloud_name" => env('CLOUDINARY_CLOUD_NAME'),
-		// 	"api_key" => env('CLOUDINARY_API_KEY'),
-		// 	"api_secret" => env('CLOUDINARY_API_SECRET'),
-		// ));
-	}
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -60,7 +51,6 @@ class CoursesController extends Controller
      */
     public function store(Request $request)
     {
-
         $formFields = $request->validate([
             'name'=>'required',
             'description'=>'required',
@@ -70,13 +60,13 @@ class CoursesController extends Controller
         ]);
 
         if($request->hasFile('picture')){
-            // $formFields['picture'] = cloudinary()->upload($request->file('picture')->getRealPath())->getSecurePath();
-            // $judul_file = $request->get('picture');
-            // $gambar = $request->file('picture');
-            // $nama_file = Str::slug($judul_file);
-            // $upload = Uploader::upload($gambar, array("public_id" => $nama_file));
-        $request->file('picture')->store('images','public');
-        $formFields['picture'] = "images/" . $request->picture->hashName();
+            $image_name = $request->file('picture')->getClientOriginalName();
+
+            $upload = Cloudinary::upload($request->file('picture')->getRealPath())->getSecurePath();
+
+            $formFields['picture'] = $upload;
+        // $request->file('picture')->store('images','public');
+        // $formFields['picture'] = "images/" . $request->picture->hashName();
         }
 
         Courses::create($formFields);
@@ -126,8 +116,8 @@ class CoursesController extends Controller
         ]);
 
         if($request->hasFile('picture')){
-            $request->file('picture')->store('images','public');
-            $formFields['picture'] = "images/" . $request->picture->hashName();
+            // $request->file('picture')->store('images','public');
+            // $formFields['picture'] = "images/" . $request->picture->hashName();
         }
 
         $course = Courses::findOrFail($listing);

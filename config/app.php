@@ -182,6 +182,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider::class,
+        JD\Cloudder\CloudderServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -211,7 +212,12 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'Cloudinary' => CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary::class,
-        'log' => 'errorlog'
+        'log' => 'errorlog',
+        'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
+        'cloudname' => env('CLOUDINARY_CLOUD_NAME'),
+        'cloudapikey' => env('CLOUDINARY_API_KEY'),
+        'cloudapisecret' => env('CLOUDINARY_API_SECRET'),
+        'cloudurl' => env('CLOUDINARY_URL')
     ])->toArray(),
 
 ];
