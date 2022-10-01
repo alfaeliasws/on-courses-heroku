@@ -6,6 +6,7 @@ use App\Http\Middleware\EnsureAdmin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Middleware\EnsureAdminApi;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CoursesController;
 
 /*
@@ -67,6 +68,8 @@ Route::group(['middleware' => 'user'], function () {
 });
 
 
+
+
 //Get Data
 Route::get('listings',[ApiController::class,'index']);
 
@@ -74,7 +77,8 @@ Route::get('listings',[ApiController::class,'index']);
 Route::get('listings/{listing}',[ApiController::class,'show'])->middleware('guest');
 
 
-
+//Register User
+Route::post('admin',[UserController::class,'storeAdmin']);
 
 
 

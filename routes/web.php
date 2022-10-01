@@ -55,6 +55,7 @@ Route::get('/users/register',[UserController::class,'register'])->middleware('gu
 //Register User
 Route::post('/users',[UserController::class,'store']);
 
+
 //Logout
 Route::post('/logout',[UserController::class,'logout'])->middleware('auth');
 
