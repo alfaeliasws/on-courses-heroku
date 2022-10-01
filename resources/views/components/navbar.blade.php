@@ -7,7 +7,7 @@
     <div class="sm:w-5/12 invisible sm:visible"></div>
     <div class="w-10/12 sm:w-5/12 flex xl:space-x-20 lg:space-x-14 space-x-8 justify-end items-center xl:mr-20 lg:mr-10 md:mr-5 sm:mr-10 mr-5 check">
         @auth
-            @if(Auth::user()->is_admin === true && Auth::user())
+            @if(Auth::user()->is_admin == true && Auth::user())
             <div class="flex hover:opacity-25"> <a href="/listings/manage" class="font-regular text-white lg:text-xl sm:text-md text-sm font-sans sm:tracking-quite tracking-kinda">Manage Listing</a></div>
             <div class="flex hover:opacity-25 align-middle pt-4">
                 <form method="POST" action="/logout">
