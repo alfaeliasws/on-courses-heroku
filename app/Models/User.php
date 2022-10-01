@@ -28,7 +28,8 @@ class User extends Authenticatable
         'email',
         'password',
         'deleted_at',
-        'api_token'
+        'api_token',
+        'is_admin'
     ];
 
     /**
