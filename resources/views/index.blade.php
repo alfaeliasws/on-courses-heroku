@@ -1,3 +1,14 @@
+<?php
+// use Illuminate\Support\Facades\Http;
+
+// $free = false;
+
+// if($free === true){
+//     $listings = Http::get('/api/free');
+//     dd($data);
+// }
+
+?>
 
 <x-layout>
     <div class="min-h-screen z-0 bg-neutral-300 shadow-skill rounded-b-xl">
@@ -16,6 +27,15 @@
         </div>
 
         <div class="text-white">
+
+            @if((Auth::user()?->is_admin == true) || (Auth::user()?->is_admin === 0))
+            <div class="w-full flex flex-wrap">
+                <div class="w-4/12 mx-10">
+                    <a></a>
+                </div>
+            </div>
+            @else
+            @endif
 
             <p class="check w-full text-neutral-800 text-center xl:mt-20 sm:mt-10 mt-10 lg:text-4xl md:text-2xl font-semibold font-mono uppercase tracking-wider mb-5">Online Courses</p>
 
