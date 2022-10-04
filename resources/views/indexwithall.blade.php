@@ -33,13 +33,36 @@
                 </div>
 
                 <div class="min-w-min my-4 rounded-lg shadow-new transition-all hover:text-black bg-neutral-600 hover:bg-neutral-300 flex  mx-3 " id="free">
-                    <a href="/indexwithcategory/#title" id="categoryButton" class="mx-3 py-4 tracking-widest hover:">Show Category</a>
+                    <a href="/indexwithpopular/#title" id="categoryButton" class="mx-3 py-4 tracking-widest hover:">Hide Categories</a>
                 </div>
 
                 <div class="min-w-min my-4 rounded-lg shadow-new transition-all hover:text-black bg-neutral-600 hover:bg-neutral-300 flex  mx-3 " id="free">
-                    <a href="/indexwithpopular/#title" onclick="popular()" class="mx-3 py-4 tracking-widest hover:">Show Popular Categeory</a>
+                    <a href="/indexwithcategory/#title" onclick="popular()" class="mx-3 py-4 tracking-widest hover:">Hide Popular Categeory</a>
                 </div>
             </div>
+
+            <div id="container" class="min-h-min">
+
+                <div class="flex flex-wrap justify-center mt-5" id="category">
+                    <p class="w-full text-center mb-4 text-black font-mono tracking-kinda text-lg">All Categories</p>
+                    @foreach($tags as $tag)
+                    <li class="fade font-mono flex items-center justify-center bg-neutral-800 text-white rounded-xl py-2 tracking-wide hover:bg-neutral-400 transition-all hover:tracking-kindof px-3 mr-2 text-xs">
+                        <a href="/?tag={{$tag}}">{{$tag}}</a>
+                    </li>
+                    @endforeach
+                </div>
+
+                <div class="flex flex-wrap justify-center mt-5" id="popular">
+                    <p class="w-full text-center mb-4 text-black font-mono tracking-kinda text-lg">Popular Categories</p>
+                    @foreach($pops as $tag)
+                    <li class="fade font-mono flex items-center justify-center bg-neutral-800 text-white rounded-xl py-2 tracking-wide hover:bg-neutral-400 transition-all hover:tracking-kindof px-3 mr-2 text-xs">
+                        <a href="/?tag={{$tag}}">{{$tag}}</a>
+                    </li>
+                    @endforeach
+                </div>
+
+            </div>
+
             @else
             @endif
 

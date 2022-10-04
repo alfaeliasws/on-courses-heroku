@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\EnsureUser;
 use App\Http\Middleware\EnsureAdmin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
@@ -67,3 +68,7 @@ Route::post('/users/authenticate',[UserController::class,'authenticate']);
 
 //User Delete
 Route::delete('/userdelete/{user}',[UserController::class,'destroy'])->middleware(EnsureAdmin::class);
+
+Route::get('/indexwithall', [CoursesController::class, 'indexwithall'])->middleware(EnsureUser::class);
+Route::get('/indexwithcategory', [CoursesController::class, 'indexwithcategory'])->middleware(EnsureUser::class);
+Route::get('/indexwithpopular', [CoursesController::class, 'indexwithpopular'])->middleware(EnsureUser::class);

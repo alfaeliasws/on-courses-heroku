@@ -1,3 +1,5 @@
+
+
 <x-layout>
     <div>
         <p class="text-white md:my-10 sm:my-8 my-5 md:mx-48 sm:mx-20 mx-10 tracking-widest md:text-4xl sm:text-2xl text-2xl uppercase font-sans font-bold">Edit:</p>

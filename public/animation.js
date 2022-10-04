@@ -12,6 +12,8 @@ const observer = new IntersectionObserver((entries) => {
 const checkElements = document.querySelectorAll('.check')
 checkElements.forEach((el) => observer.observe(el))
 
+
+//show the pics
 var input = document.getElementById( 'picture' );
 var infoArea = document.getElementById( 'file-upload-filename' );
 
@@ -28,3 +30,5 @@ var fileName = input.files[0].name;
 // use fileName however fits your app best, i.e. add it into a div
 infoArea.textContent = 'File name: ' + fileName;
 }
+
+

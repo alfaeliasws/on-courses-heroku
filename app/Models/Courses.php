@@ -22,12 +22,25 @@ class Courses extends Model
             $query
                 ->where('name','like','%' . request('search') . '%' )
                 ->orWhere('description', 'like', '%' . request('search') . '%')
-                ->orWhere('tag', 'like', '%' . request('search') . '%');
+                ->orWhere('tags', 'like', '%' . request('search') . '%');
         }
 
         if($filters['tag'] ?? false) {
             $query
                 ->where('tags','like','%' . request('tag') . '%' );
+        }
+
+        if($filters['free'] ?? false) {
+            $query->whereRaw("price = 0");
+        }
+
+
+        if($filters['asc'] ?? false) {
+            $query->reorder("price","asc");
+        }
+
+        if($filters['desc'] ?? false) {
+            $query->reorder("price","desc");
         }
     }
 }

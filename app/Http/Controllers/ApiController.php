@@ -215,7 +215,7 @@ class ApiController extends Controller{
         $newarray = $array_frequency;
         $realPreData = array_keys($newarray);
 
-        return array_slice($realPreData,0,5);
+        $data = array_slice($realPreData,0,5);
 
         if($data){
             return ApiFormatter::createApi(200, 'Success', $data );
