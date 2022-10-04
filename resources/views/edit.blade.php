@@ -14,13 +14,14 @@
                         <label for="name" class="w-full">Name:</label>
                     </div>
                     <input type="text" name="name" class="sm:pl-4 pl-2 tracking-widest h-10 w-full my-4 shadow-new rounded-xl bg-neutral-600 placeholder:opacity-70 placeholder:text-sm"
-                    placeholder="Use This Format 'RACIP #number'" value="{{$listing->name}}"/>
+                    placeholder="Your Courses Name" value="{{$listing->name}}"/>
                     @error('name')
                     <p class="text-red-500 text-xs mt-1 w-full">{{$message}}</p>
                     @enderror
 
                     <div class="font-bold sm:text-2xl text-lg font-sans tracking-kinda pt-3 w-full">
-                        <p class="mb-4">Picture:</p>
+                        <p class="mb-4 w-full">Picture:</p>
+                        <p class="mb-4 text-xs w-full">File Size Max 2MB</p>
                         <label for="picture" class="upload-file text-gray-400 hover:text-gray-200 bg-neutral-600 w-full lg:text-lg rounded-lg hover:px-6 hover:bg-neutral-400 transition-all">Choose File</label>
                         <input id="picture" type="file" name="picture"/>
                         </label>
@@ -37,7 +38,7 @@
                         <label for="tags" class="w-full">Categories:</label>
                     </div>
                     <input type="text" name="tags" class="sm:pl-4 pl-2 tracking-widest h-10 w-full my-4 shadow-new rounded-xl bg-neutral-600 placeholder:opacity-70 placeholder:text-sm"
-                    placeholder="Your Category put ',' between categories " value="{{$listing->tags}}"/>
+                    placeholder="Put ',' between categories " value="{{$listing->tags}}"/>
                     @error('tags')
                     <p class="text-red-500 text-xs mt-1 w-full">{{$message}}</p>
                     @enderror
