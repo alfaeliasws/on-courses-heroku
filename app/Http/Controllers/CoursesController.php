@@ -185,7 +185,10 @@ class CoursesController extends Controller
         if($request->hasFile('picture')){
             $image_name = $request->file('picture')->getClientOriginalName();
 
-            $upload = Cloudinary::upload($request->file('picture')->getRealPath())->getSecurePath();
+            $upload = Cloudinary::upload($request->file('picture')->getRealPath(),['transformation' => [
+                'quality' => 'auto',
+                'fetch_format' => 'auto'
+            ]])->getSecurePath();
 
             $formFields['picture'] = $upload;
         // $request->file('picture')->store('images','public');
@@ -241,7 +244,10 @@ class CoursesController extends Controller
         if($request->hasFile('picture')){
             $image_name = $request->file('picture')->getClientOriginalName();
 
-            $upload = Cloudinary::upload($request->file('picture')->getRealPath())->getSecurePath();
+            $upload = Cloudinary::upload($request->file('picture')->getRealPath(),['transformation' => [
+                'quality' => 'auto',
+                'fetch_format' => 'auto'
+            ]])->getSecurePath();
 
             $formFields['picture'] = $upload;
         }
