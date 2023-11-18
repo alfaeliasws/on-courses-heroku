@@ -14,7 +14,7 @@
             </div>
         </div>
 
-        <div class="text-white" id="title">
+        <div class="text-white" id="title                                                                                                                           ">
 
             <p class="check w-full text-neutral-800 text-center xl:mt-20 sm:mt-10 mt-10 lg:text-4xl md:text-2xl font-semibold font-mono uppercase tracking-wider mb-5">Online Courses</p>
 
